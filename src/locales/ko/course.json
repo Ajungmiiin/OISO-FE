@@ -8,6 +8,7 @@
     "companion_type_label": "동행 유형",
     "preferred_theme_label": "선호하는 테마",
     "transportation_label": "이동수단",
+    "form.travel_start_date_label" : "여행 일정",
     "duration_option_half_day": "반나절",
     "duration_option_full_day": "하루종일",
     "duration_option_1n2d": "1박 2일",

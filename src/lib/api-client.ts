@@ -5,6 +5,7 @@ import axios, {
 } from 'axios'
 import { API_BASE_URL } from '@/constants/api'
 import i18n from '@/lib/i18n'
+import { useAuthStore } from '@/stores/auth-store'
 
 type RetriableRequestConfig = InternalAxiosRequestConfig & {
   _retry?: boolean
@@ -55,6 +56,8 @@ apiClient.interceptors.response.use(
       await refreshPromise
       return apiClient(originalRequest)
     } catch (refreshError) {
+      // refresh까지 실패 = 진짜 비로그인. role을 정리해 store도 로그아웃 상태로 맞춘다.
+      useAuthStore.getState().logout()
       // me(auth check)는 조용히 실패(비로그인 처리). 그 외 요청만 로그인 페이지로 유도.
       if (!isAuthCheckRequest && window.location.pathname !== '/login') {
         window.location.assign('/login')

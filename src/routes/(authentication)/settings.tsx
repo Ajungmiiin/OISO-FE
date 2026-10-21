@@ -19,7 +19,6 @@ function RouteComponent() {
   const navigate = useNavigate()
   const queryClient = useQueryClient()
   const logout = useAuthStore((state) => state.logout)
-  const setLoading = useAuthStore((state) => state.setLoading)
   const [isLoggingOut, setIsLoggingOut] = useState(false)
   const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false)
   const [isWithdrawModalOpen, setIsWithdrawModalOpen] = useState(false)
@@ -43,7 +42,6 @@ function RouteComponent() {
       await requestLogout()
     } finally {
       logout()
-      setLoading(false)
       queryClient.removeQueries({ queryKey: ['auth'] })
       navigate({ to: '/login', replace: true })
     }

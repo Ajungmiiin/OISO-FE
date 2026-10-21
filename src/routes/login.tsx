@@ -15,26 +15,12 @@ export const Route = createFileRoute('/login')({
 
 function RouteComponent() {
   const { t } = useTranslation('auth')
-  const { role, isLoading } = useAuth()
+  const { role } = useAuth()
   useAuthCheck()
 
   const navigate = useNavigate()
 
   const { setAuthRole } = useAuthStore()
-
-  if (isLoading) {
-    return (
-      <div className="flex min-h-svh items-center justify-center">
-        <LogoSymbol
-          aria-label="OISO 로고"
-          className="translate-y-[clamp(-16px,calc(8svh-59.2px),16px)] transition-transform duration-300"
-          height={100}
-          role="img"
-          width={100}
-        />
-      </div>
-    )
-  }
 
   if (role === 'user') {
     return <Navigate to="/" replace />

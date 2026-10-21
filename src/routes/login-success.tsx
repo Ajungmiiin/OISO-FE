@@ -11,7 +11,7 @@ export const Route = createFileRoute('/login-success')({
 
 function RouteComponent() {
   const navigate = useNavigate()
-  const { setAuthRole, setAuthenticated, setLoading } = useAuthStore()
+  const { setAuthRole } = useAuthStore()
 
   useEffect(() => {
     let cancelled = false
@@ -20,9 +20,7 @@ function RouteComponent() {
       const authenticated = await checkAuth()
       if (cancelled) return
 
-      setAuthenticated(authenticated)
       setAuthRole(authenticated ? 'user' : null)
-      setLoading(false)
 
       if (!authenticated) {
         navigate({ to: '/login', replace: true })
@@ -43,7 +41,7 @@ function RouteComponent() {
     return () => {
       cancelled = true
     }
-  }, [navigate, setAuthRole, setAuthenticated, setLoading])
+  }, [navigate, setAuthRole])
 
   return (
     <div className="flex min-h-svh items-center justify-center">

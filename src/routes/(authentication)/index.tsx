@@ -77,7 +77,7 @@ function RouteComponent() {
             </>
           )}
           <div className="pt-4 h-47 flex">
-            <TodayStoryCard />
+            <TodayStoryCard priority />
             {/* TODO: 오늘 경주 날씨 카드 */}
           </div>
         </section>

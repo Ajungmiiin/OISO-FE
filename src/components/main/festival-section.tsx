@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils'
 import { FestivalResponse } from '@/types/festival'
 import { Link } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
+import AppImage from '../ui/app-image'
 
 function FestivalSection() {
   const { t } = useTranslation('home')
@@ -55,7 +56,7 @@ function FestivalListItem({
       className="flex flex-col gap-2 w-full"
     >
       <div className="rounded-lg overflow-hidden relative w-full h-47.5">
-        <img src={img} alt={name} className="w-full h-full" />
+        <AppImage src={img} alt={name} className="w-full h-full" />
       </div>
 
       <div>

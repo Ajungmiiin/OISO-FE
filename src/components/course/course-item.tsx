@@ -2,6 +2,7 @@ import { Link } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
 import ImageFallback from '@/components/image-fallback'
 import type { CourseListDetail } from '@/types/course'
+import AppImage from '../ui/app-image'
 
 function CourseItem({ course }: { course: CourseListDetail }) {
   const { t } = useTranslation('home')
@@ -18,15 +19,12 @@ function CourseItem({ course }: { course: CourseListDetail }) {
             count: course.itemCount,
           })}
         </span>
-        {course.thumbnailImg ? (
-          <img
-            src={course.thumbnailImg}
-            alt={course.title}
-            className="w-full h-30 rounded-lg object-cover"
-          />
-        ) : (
-          <ImageFallback className="h-30 w-full rounded-lg" />
-        )}
+        <AppImage
+          src={course.thumbnailImg}
+          alt={course.title}
+          className="w-full h-30 rounded-lg object-cover"
+          fallbackImage={<ImageFallback className="h-30 w-full rounded-lg" />}
+        />
       </div>
       <div className="flex flex-col gap-0.5">
         <p className="text-body2 font-bold line-clamp-1">{course.title}</p>

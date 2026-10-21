@@ -1,4 +1,5 @@
 import { cn } from '@/lib/utils'
+import AppImage from '../ui/app-image'
 
 interface StoryCardPreviewProps {
   imageUrl: string | null
@@ -6,6 +7,7 @@ interface StoryCardPreviewProps {
   subTitle: string
   label: string
   className?: string
+  priority?: boolean
 }
 
 // 스토리카드 미리보기 카드(이미지 + 하단 그라데이션에 라벨 칩 + 부제).
@@ -16,6 +18,7 @@ function StoryCardPreview({
   subTitle,
   label,
   className,
+  priority,
 }: StoryCardPreviewProps) {
   return (
     <div
@@ -24,15 +27,14 @@ function StoryCardPreview({
         className,
       )}
     >
-      {imageUrl ? (
-        <img
-          src={imageUrl}
-          alt={title}
-          className="h-full w-full bg-gray-300 object-cover"
-        />
-      ) : (
-        <div className="h-full w-full bg-gray-300" />
-      )}
+      <AppImage
+        fallbackImage={<div className="h-full w-full bg-gray-300" />}
+        src={imageUrl}
+        alt={title}
+        priority={priority}
+        className="h-full w-full bg-gray-300 object-cover"
+      />
+
       <div className="absolute bottom-0 left-0 flex h-full w-full flex-col justify-end bg-linear-to-t from-black/40 from-5% to-transparent p-4">
         <span className="flex w-fit items-center justify-center rounded-full bg-white px-2 py-0.5 text-caption font-bold text-text-default">
           {label}

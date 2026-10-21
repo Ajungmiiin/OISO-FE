@@ -4,8 +4,12 @@ import { useFeaturedStoryCard } from '@/hooks/queries/story'
 import { useRequireAuth } from '@/hooks/use-require-auth'
 import { useNavigate } from '@tanstack/react-router'
 
+interface TodayStoryCardProps {
+  priority?: boolean
+}
+
 // 홈 "오늘의 경주 이야기" 카드. featured 스토리카드 1개를 표시한다.
-function TodayStoryCard() {
+function TodayStoryCard({ priority }: TodayStoryCardProps) {
   const { t } = useTranslation('home')
   const requireAuth = useRequireAuth()
   const { data: story, isPending } = useFeaturedStoryCard()
@@ -29,6 +33,7 @@ function TodayStoryCard() {
       }
     >
       <StoryCardPreview
+        priority={priority}
         imageUrl={story.imageUrl}
         title={story.title}
         subTitle={story.subTitle}

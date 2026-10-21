@@ -1,5 +1,5 @@
 
-<img width="7952" height="3998" alt="Frame 460 (1)" src="https://github.com/user-attachments/assets/78954efe-d76b-4239-9c44-0495178caeee" />
+<img width="7952" height="3998" alt="Service Mock Up" src="https://github.com/user-attachments/assets/4e4ed813-8624-4c27-9069-8fc529e99d0f" />
 
 ## 서비스 소개
 

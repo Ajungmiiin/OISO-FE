@@ -1,4 +1,14 @@
 {
+  "images": {
+    "sizes": [640],
+    "formats": ["image/avif", "image/webp"],
+    "remotePatterns": [
+      { "protocol": "https", "hostname": "tong.visitkorea.or.kr" },
+      { "protocol": "http", "hostname": "tong.visitkorea.or.kr" },
+      { "protocol": "https", "hostname": "devin.aks.ac.kr" }
+    ],
+    "minimumCacheTTL": 86400
+  },
   "rewrites": [
     {
       "source": "/api/:path*",
